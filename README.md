@@ -2,4 +2,4 @@
 
 RxSwiftSample
 
-Ref. https://github.com/jollyjoester/RxSwiftSample
+Ref. https://github.com/naoto0822/try-reactive-swift
