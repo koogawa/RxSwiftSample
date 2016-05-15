@@ -6,5 +6,7 @@ use_frameworks!
 target 'RxSwiftSample' do
     pod 'RxSwift',    '~> 2.0'
     pod 'RxCocoa',    '~> 2.0'
+    pod 'FoursquareAPIClient'
+    pod 'SwiftyJSON'
 end
 

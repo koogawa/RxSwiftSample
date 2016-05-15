@@ -84,10 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-RxSwiftSample/FoursquareAPIClient.framework"
   install_framework "Pods-RxSwiftSample/RxCocoa.framework"
   install_framework "Pods-RxSwiftSample/RxSwift.framework"
+  install_framework "Pods-RxSwiftSample/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-RxSwiftSample/FoursquareAPIClient.framework"
   install_framework "Pods-RxSwiftSample/RxCocoa.framework"
   install_framework "Pods-RxSwiftSample/RxSwift.framework"
+  install_framework "Pods-RxSwiftSample/SwiftyJSON.framework"
 fi

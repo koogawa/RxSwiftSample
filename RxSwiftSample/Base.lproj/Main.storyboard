@@ -5,51 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RxSwiftSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecN-0q-tsc">
-                                <rect key="frame" x="250" y="78" width="100" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="2Zy-vV-dNb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fin-eo-dO2">
-                                <rect key="frame" x="250" y="107" width="100" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ecN-0q-tsc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bp6-A1-Bvl"/>
-                            <constraint firstItem="Fin-eo-dO2" firstAttribute="top" secondItem="ecN-0q-tsc" secondAttribute="bottom" constant="8" symbolic="YES" id="Hds-rW-hUh"/>
-                            <constraint firstItem="ecN-0q-tsc" firstAttribute="leading" secondItem="Fin-eo-dO2" secondAttribute="leading" id="fUC-5j-IIj"/>
-                            <constraint firstItem="ecN-0q-tsc" firstAttribute="trailing" secondItem="Fin-eo-dO2" secondAttribute="trailing" id="gzR-9C-Z8t"/>
-                            <constraint firstItem="ecN-0q-tsc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="kZP-ih-Qdi"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="label" destination="ecN-0q-tsc" id="6GE-Da-wna"/>
-                        <outlet property="textField" destination="Fin-eo-dO2" id="1pu-iv-9a0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Root View Controller-->
+        <!--RxSwift Sample-->
         <scene sceneID="0M9-Za-IOH">
             <objects>
                 <tableViewController id="1nZ-g4-XUE" customClass="ViewController" customModule="RxSwiftSample" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,12 +39,11 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1nZ-g4-XUE" id="uRk-dN-qXZ"/>
-                            <outlet property="delegate" destination="1nZ-g4-XUE" id="L3w-HT-lPO"/>
-                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="49x-EP-nSI"/>
+                    <navigationItem key="navigationItem" title="RxSwift Sample" id="49x-EP-nSI"/>
+                    <connections>
+                        <outlet property="tableView" destination="aVW-Tu-upc" id="fc9-rY-qzb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpz-0g-eSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
