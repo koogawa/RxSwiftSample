@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 import RxSwift
 import RxCocoa
 
@@ -28,6 +29,22 @@ class ViewController: UIViewController {
             .drive (
                 self.tableView.rx_itemsWithDataSource(self.dataSource)
             )
+            .addDisposableTo(self.disposeBag)
+        
+        self.tableView.rx_itemSelected
+            .bindNext { [weak self] (indexPath) -> Void in
+                if let venue = self?.viewModel.venues.value[indexPath.row] {
+                    let urlString = "https://foursquare.com/v/" + venue.venueId
+                    if let url = NSURL(string: urlString) {
+                        let safariViewController = SFSafariViewController(URL: url)
+                        self?.presentViewController(
+                            safariViewController,
+                            animated: true,
+                            completion: nil
+                        )
+                    }
+                }
+            }
             .addDisposableTo(self.disposeBag)
     }
 
