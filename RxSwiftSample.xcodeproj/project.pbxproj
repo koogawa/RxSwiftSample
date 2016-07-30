@@ -11,6 +11,7 @@
 		214E23491CE801FD00FCD3FD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E23481CE801FD00FCD3FD /* ViewModel.swift */; };
 		214E234B1CE80C8E00FCD3FD /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E234A1CE80C8E00FCD3FD /* DataSource.swift */; };
 		214E234D1CE810AD00FCD3FD /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E234C1CE810AD00FCD3FD /* Delegate.swift */; };
+		21B53E6C1D4CC53E00416EF2 /* VenuesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B53E6B1D4CC53E00416EF2 /* VenuesAPIClient.swift */; };
 		90A93D00918312BA468DB299 /* Pods_RxSwiftSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE977F4B1CAE691E496A520D /* Pods_RxSwiftSample.framework */; };
 		DC6226691CE43E4A00B3AA01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6226681CE43E4A00B3AA01 /* AppDelegate.swift */; };
 		DC62266B1CE43E4A00B3AA01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC62266A1CE43E4A00B3AA01 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		214E23481CE801FD00FCD3FD /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		214E234A1CE80C8E00FCD3FD /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		214E234C1CE810AD00FCD3FD /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		21B53E6B1D4CC53E00416EF2 /* VenuesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesAPIClient.swift; sourceTree = "<group>"; };
 		5B88DE5C3123CD7BA5031FBD /* Pods-RxSwiftSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftSample/Pods-RxSwiftSample.release.xcconfig"; sourceTree = "<group>"; };
 		9E20ABF3E2231F8E8422332E /* Pods-RxSwiftSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftSample/Pods-RxSwiftSample.debug.xcconfig"; sourceTree = "<group>"; };
 		CE977F4B1CAE691E496A520D /* Pods_RxSwiftSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 				DC62266A1CE43E4A00B3AA01 /* ViewController.swift */,
 				214E23481CE801FD00FCD3FD /* ViewModel.swift */,
 				214E23461CE7EF5F00FCD3FD /* Venue.swift */,
+				21B53E6B1D4CC53E00416EF2 /* VenuesAPIClient.swift */,
 				DC62266C1CE43E4A00B3AA01 /* Main.storyboard */,
 				DC62266F1CE43E4A00B3AA01 /* Assets.xcassets */,
 				DC6226711CE43E4A00B3AA01 /* LaunchScreen.storyboard */,
@@ -224,6 +227,7 @@
 			files = (
 				214E234D1CE810AD00FCD3FD /* Delegate.swift in Sources */,
 				DC62266B1CE43E4A00B3AA01 /* ViewController.swift in Sources */,
+				21B53E6C1D4CC53E00416EF2 /* VenuesAPIClient.swift in Sources */,
 				214E23471CE7EF5F00FCD3FD /* Venue.swift in Sources */,
 				214E23491CE801FD00FCD3FD /* ViewModel.swift in Sources */,
 				214E234B1CE80C8E00FCD3FD /* DataSource.swift in Sources */,
