@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var viewModel = ViewModel()
     var dataSource = DataSource()
     var delegate = Delegate()
+
     let client = VenuesAPIClient()
     let disposeBag = DisposeBag()
 
@@ -27,9 +28,12 @@ class ViewController: UIViewController {
 
         self.tableView.delegate = self.delegate
 
-        self.searchBar.rx_text
-            .subscribeNext { query in
-                self.viewModel.fetch(query)
+        self.searchBar.rx_text.asDriver()
+            .throttle(0.3)
+            .distinctUntilChanged()
+            .driveNext { query in
+                print(query)
+                self.client.search(query)
             }
             .addDisposableTo(self.disposeBag)
 
