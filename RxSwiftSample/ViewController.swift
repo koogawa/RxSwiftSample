@@ -14,16 +14,25 @@ import RxCocoa
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var viewModel = ViewModel()
     var dataSource = DataSource()
     var delegate = Delegate()
+    let client = VenuesAPIClient()
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.tableView.delegate = self.delegate
-        self.viewModel.fetch()
+
+        self.searchBar.rx_text
+            .subscribeNext { query in
+                self.viewModel.fetch(query)
+            }
+            .addDisposableTo(self.disposeBag)
+
         self.viewModel.venues
             .asDriver()
             .drive (
