@@ -14,6 +14,8 @@ import FoursquareAPIClient
 public final class ViewModel {
 
     private(set) var venues = Variable<[Venue]>([])
+
+    let client = VenuesAPIClient()
     let disposeBag = DisposeBag()
 
     init() {
@@ -22,46 +24,18 @@ public final class ViewModel {
 
     // MARK: - Public
 
-    public func fetch() {
-        self.send()
+    public func fetch(query: String = "") {
+        client.search(query)
             .subscribe { [weak self] (event) -> Void in
                 switch event {
                 case .Next(let value):
                     self?.venues.value = value
-                case .Error(_):
-                    ()
+                case .Error(let error):
+                    print(error)
                 case .Completed:
                     ()
                 }
             }
             .addDisposableTo(disposeBag)
-    }
-
-    // MARK: - Private
-
-    // TODO: ここもクラス化
-    func send() -> Observable<[Venue]> {
-        return Observable.create{ (observer) in
-            let client = FoursquareAPIClient(accessToken: "YOUR_TOKEN")
-            let parameter: [String: String] = [
-                "ll": "40.7,-74",
-            ];
-            client.requestWithPath("venues/search", parameter: parameter) {
-                [weak self] (data, error) in
-                let json = JSON(data: data!)
-                let venues = (self?.parseVenues(json["response"]["venues"])) ?? [Venue]()
-                observer.on(.Next(venues))
-                observer.on(.Completed)
-            }
-            return AnonymousDisposable {}
-        }
-    }
-
-    func parseVenues(venuesJSON: JSON) -> [Venue] {
-        var venues = [Venue]()
-        for (key: _, venueJSON: JSON) in venuesJSON {
-            venues.append(Venue(json: JSON))
-        }
-        return venues
     }
 }
