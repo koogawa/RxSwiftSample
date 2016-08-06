@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     var dataSource = DataSource()
     var delegate = Delegate()
 
-    let client = VenuesAPIClient()
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -33,7 +32,7 @@ class ViewController: UIViewController {
             .distinctUntilChanged()
             .driveNext { query in
                 print(query)
-                self.client.search(query)
+                self.viewModel.fetch(query)
             }
             .addDisposableTo(self.disposeBag)
 
