@@ -18,40 +18,40 @@ public final class DataSource: NSObject, RxTableViewDataSourceType, UITableViewD
 
     // MARK: - Property
 
-    private var venues = [Venue]()
+    fileprivate var venues = [Venue]()
 
     // MARK: - RxTableView DataSourceType
 
-    public func tableView(tableView: UITableView, observedEvent: Event<Element>) {
+    public func tableView(_ tableView: UITableView, observedEvent: Event<Element>) {
         switch observedEvent {
-        case .Next(let value):
+        case .next(let value):
             self.venues = value
             tableView.reloadData()
-        case .Error(_):
+        case .error(_):
             ()
-        case .Completed:
+        case .completed:
             ()
         }
     }
 
     // MARK: - UITableView DataSource
 
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.venues.count
     }
 
-    public func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
 
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("VenueCell", forIndexPath: indexPath)
-        cell.textLabel?.text = self.venues[indexPath.row].name
-        cell.detailTextLabel?.text = self.venues[indexPath.row].address
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VenueCell", for: indexPath)
+        cell.textLabel?.text = self.venues[(indexPath as NSIndexPath).row].name
+        cell.detailTextLabel?.text = self.venues[(indexPath as NSIndexPath).row].address
         return cell
     }
 

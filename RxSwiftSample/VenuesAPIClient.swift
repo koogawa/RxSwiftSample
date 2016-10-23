@@ -13,26 +13,26 @@ import FoursquareAPIClient
 
 class VenuesAPIClient {
 
-    func search(query: String = "") -> Observable<[Venue]> {
+    func search(_ query: String = "") -> Observable<[Venue]> {
         return Observable.create{ (observer) in
             let client = FoursquareAPIClient(accessToken: "YOUR_TOKEN")
             let parameter: [String: String] = [
                 "ll": "40.7,-74",
                 "query": query
             ];
-            client.requestWithPath("venues/search", parameter: parameter) {
+            client.request(path: "venues/search", parameter: parameter) {
                 [weak self] (data, error) in
-                guard let strongSelf = self, data = data else { return }
+                guard let strongSelf = self, let data = data else { return }
                 let json = JSON(data: data)
                 let venues = strongSelf.parseVenues(json["response"]["venues"])
-                observer.on(.Next(venues))
-                observer.on(.Completed)
+                observer.on(.next(venues))
+                observer.on(.completed)
             }
-            return AnonymousDisposable {}
+            return Disposables.create {}
         }
     }
 
-    private func parseVenues(venuesJSON: JSON) -> [Venue] {
+    fileprivate func parseVenues(_ venuesJSON: JSON) -> [Venue] {
         var venues = [Venue]()
         for (key: _, venueJSON: JSON) in venuesJSON {
             venues.append(Venue(json: JSON))
