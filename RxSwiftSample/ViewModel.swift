@@ -24,10 +24,10 @@ public final class ViewModel {
 
     // MARK: - Public
 
-    public func fetch(_ query: String = "") {
-        client.search(query)
-            .subscribe { [weak self] (event) -> Void in
-                switch event {
+    public func fetch(query: String = "") {
+        client.search(query: query)
+            .subscribe { [weak self] result in
+                switch result {
                 case .next(let value):
                     self?.venues.value = value
                 case .error(let error):

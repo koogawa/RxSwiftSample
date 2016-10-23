@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             .distinctUntilChanged()
             .drive(onNext: { query in
                 print(query)
-                self.viewModel.fetch(query)
+                self.viewModel.fetch(query: query)
             })
             .addDisposableTo(self.disposeBag)
 
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             .addDisposableTo(self.disposeBag)
         
         self.tableView.rx.itemSelected
-            .bindNext { [weak self] (indexPath) -> Void in
+            .bindNext { [weak self] indexPath in
                 if let venue = self?.viewModel.venues.value[indexPath.row] {
                     let urlString = "https://foursquare.com/v/" + venue.venueId
                     if let url = URL(string: urlString) {
