@@ -12,7 +12,7 @@ public final class Delegate: NSObject, UITableViewDelegate {
 
     // MARK: - UITableView Delegate
 
-    public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
 

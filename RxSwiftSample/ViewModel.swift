@@ -13,7 +13,7 @@ import FoursquareAPIClient
 
 public final class ViewModel {
 
-    private(set) var venues = Variable<[Venue]>([])
+    fileprivate(set) var venues = Variable<[Venue]>([])
 
     let client = VenuesAPIClient()
     let disposeBag = DisposeBag()
@@ -25,14 +25,14 @@ public final class ViewModel {
     // MARK: - Public
 
     public func fetch(query: String = "") {
-        client.search(query)
-            .subscribe { [weak self] (event) -> Void in
-                switch event {
-                case .Next(let value):
+        client.search(query: query)
+            .subscribe { [weak self] result in
+                switch result {
+                case .next(let value):
                     self?.venues.value = value
-                case .Error(let error):
+                case .error(let error):
                     print(error)
-                case .Completed:
+                case .completed:
                     ()
                 }
             }

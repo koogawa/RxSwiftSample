@@ -27,33 +27,29 @@ class ViewController: UIViewController {
 
         self.tableView.delegate = self.delegate
 
-        self.searchBar.rx_text.asDriver()
+        self.searchBar.rx.text.asDriver()
             .throttle(0.3)
             .distinctUntilChanged()
-            .driveNext { query in
+            .drive(onNext: { query in
                 print(query)
-                self.viewModel.fetch(query)
-            }
+                self.viewModel.fetch(query: query)
+            })
             .addDisposableTo(self.disposeBag)
 
         self.viewModel.venues
             .asDriver()
             .drive (
-                self.tableView.rx_itemsWithDataSource(self.dataSource)
+                self.tableView.rx.items(dataSource: self.dataSource)
             )
             .addDisposableTo(self.disposeBag)
         
-        self.tableView.rx_itemSelected
-            .bindNext { [weak self] (indexPath) -> Void in
+        self.tableView.rx.itemSelected
+            .bindNext { [weak self] indexPath in
                 if let venue = self?.viewModel.venues.value[indexPath.row] {
                     let urlString = "https://foursquare.com/v/" + venue.venueId
-                    if let url = NSURL(string: urlString) {
-                        let safariViewController = SFSafariViewController(URL: url)
-                        self?.presentViewController(
-                            safariViewController,
-                            animated: true,
-                            completion: nil
-                        )
+                    if let url = URL(string: urlString) {
+                        let safariViewController = SFSafariViewController(url: url)
+                        self?.present(safariViewController, animated: true, completion: nil)
                     }
                 }
             }

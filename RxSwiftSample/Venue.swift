@@ -18,7 +18,7 @@ public struct Venue: CustomStringConvertible {
     let address: String?
     let latitude: Double?
     let longitude: Double?
-    let categoryIconURL: NSURL?
+    let categoryIconURL: URL?
 
     public var description: String {
         return "<venueId=\(venueId)"
@@ -36,11 +36,11 @@ public struct Venue: CustomStringConvertible {
         self.longitude = json["location"]["lng"].double
 
         // Primary Category
-        if json["categories"].array?.count > 0 {
+        if let categories = json["categories"].array, categories.count > 0 {
             let prefix = json["categories"][0]["icon"]["prefix"].string ?? ""
             let suffix = json["categories"][0]["icon"]["suffix"].string ?? ""
-            let iconUrlString = NSString(format: "%@%d%@", prefix, kCategoryIconSize, suffix)
-            self.categoryIconURL = NSURL(string: iconUrlString as String)
+            let iconUrlString = String(format: "%@%d%@", prefix, kCategoryIconSize, suffix)
+            self.categoryIconURL = URL(string: iconUrlString)
         }
         else {
             self.categoryIconURL = nil

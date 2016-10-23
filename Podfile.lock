@@ -1,20 +1,22 @@
 PODS:
-  - FoursquareAPIClient (1.0.0)
-  - RxCocoa (2.4):
-    - RxSwift (~> 2.4)
-  - RxSwift (2.4)
-  - SwiftyJSON (2.3.2)
+  - FoursquareAPIClient (2.0.0)
+  - RxCocoa (3.0.0-rc.1):
+    - RxSwift (~> 3.0.0-rc.1)
+  - RxSwift (3.0.0-rc.1)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - FoursquareAPIClient
-  - RxCocoa (~> 2.0)
-  - RxSwift (~> 2.0)
+  - RxCocoa (= 3.0.0-rc.1)
+  - RxSwift (= 3.0.0-rc.1)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  FoursquareAPIClient: e2b5c0bb62ffaabaab19309ed528f0c8a8c83bfa
-  RxCocoa: 7d6cd877de99f5640306b3d6cf87f580c1d91b61
-  RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  FoursquareAPIClient: 243eb011fd35e223883086fbea993b5eac2de70c
+  RxCocoa: e72a074a7f38896ec0382d096df5f58df10115c7
+  RxSwift: d7a3819dd71789c473e3cbf1a0c02d58b2692739
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 153f80e6ebab2f37ecba117786c5935e95d30faf
+
+COCOAPODS: 1.1.1
